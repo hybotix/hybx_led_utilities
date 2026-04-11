@@ -14,9 +14,9 @@ hybx_led_utilities/
 │   ├── DESIGN.md         — This document
 │   └── KNOWN_ISSUES.md   — Known issues and workarounds
 ├── include/
-│   └── hybx_led.h        — Public API header
+│   └── hybx_led_utilities.h  — Public API header
 ├── src/
-│   └── hybx_led.c        — Implementation
+│   └── hybx_led_utilities.c  — Implementation
 ├── CMakeLists.txt        — ESP-IDF component registration
 ├── idf_component.yml     — IDF Component Manager manifest
 └── README.md
