@@ -1,0 +1,5 @@
+version: "0.0.1"
+description: HybX LED Utilities for the Espressif IDF
+url: https://github.com/hybotix/hybx_led_utilities
+dependencies:
+  idf: ">=5.0.0"
