@@ -1,5 +1,5 @@
 /**
- * hybx_led.h
+ * hybx_led_utilities.h
  * Hybrid RobotiX — HybX LED Utilities
  *
  * Public API for standard GPIO LED and RGB LED control via ESP-IDF LEDC.

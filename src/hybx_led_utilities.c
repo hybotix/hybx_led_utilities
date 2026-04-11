@@ -1,5 +1,5 @@
 /**
- * hybx_led.c
+ * hybx_led_utilities.c
  * Hybrid RobotiX — HybX LED Utilities
  *
  * Implementation of standard GPIO LED and RGB LED control via ESP-IDF LEDC.
