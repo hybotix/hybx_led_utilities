@@ -4,7 +4,7 @@
  *
  * Public API for standard GPIO LED and RGB LED control via ESP-IDF LEDC.
  *
- * Pin numbers are passed as parameters — no globals.h required.
+ * Override default pin definitions by defining them before including this header.
  */
 
 #pragma once
@@ -15,6 +15,21 @@
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+// ── Default RGB LED pin definitions (Arduino Nano ESP32, common anode) ────────
+// Override these by defining them before including this header.
+
+#ifndef HYBX_LED_R
+#define HYBX_LED_R GPIO_NUM_46
+#endif
+
+#ifndef HYBX_LED_G
+#define HYBX_LED_G GPIO_NUM_0
+#endif
+
+#ifndef HYBX_LED_B
+#define HYBX_LED_B GPIO_NUM_45
 #endif
 
 // ── Standard LED ──────────────────────────────────────────────────────────────
@@ -32,13 +47,10 @@ void hybx_blink_led(uint8_t pin, uint16_t delay_ms, uint8_t nr_cycles);
 
 /**
  * Initialize the RGB LED via LEDC. All channels start off.
+ * Uses HYBX_LED_R, HYBX_LED_G, HYBX_LED_B pin definitions.
  * Must be called once before any other RGB functions.
- *
- * @param pin_r  GPIO pin for red channel
- * @param pin_g  GPIO pin for green channel
- * @param pin_b  GPIO pin for blue channel
  */
-void hybx_init_rgb_led(uint8_t pin_r, uint8_t pin_g, uint8_t pin_b);
+void hybx_init_rgb_led(void);
 
 /**
  * Pack red, green, blue values into a single 32-bit color value.
