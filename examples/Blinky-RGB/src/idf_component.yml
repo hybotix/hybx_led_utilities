@@ -1,0 +1,4 @@
+dependencies:
+  idf: ">=5.0.0"
+  hybotix/hybx_led_utilities:
+    git: "https://github.com/hybotix/hybx_led_utilities.git"
