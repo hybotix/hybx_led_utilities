@@ -8,6 +8,7 @@
 #include "hybx_led_utilities.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "globals.h"
 
 #define HIGH 1
 #define LOW  0
