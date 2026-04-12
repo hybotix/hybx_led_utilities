@@ -18,7 +18,6 @@ extern "C" {
 #endif
 
 // ── Default RGB LED pin definitions (Arduino Nano ESP32, common anode) ────────
-// Override these by defining them before including this header.
 
 #ifndef HYBX_LED_R
 #define HYBX_LED_R GPIO_NUM_46
@@ -31,6 +30,33 @@ extern "C" {
 #ifndef HYBX_LED_B
 #define HYBX_LED_B GPIO_NUM_45
 #endif
+
+// ── Default standard LED pin definitions ──────────────────────────────────────
+
+#ifndef LED_YELLOW
+#define LED_YELLOW      GPIO_NUM_48
+#endif
+
+#ifndef LED_RED
+#define LED_RED         GPIO_NUM_14
+#endif
+
+#ifndef LED_PIN
+#define LED_PIN         LED_YELLOW
+#endif
+
+// ── Default control definitions ───────────────────────────────────────────────
+
+#ifndef BLINK_DELAY_MS
+#define BLINK_DELAY_MS  500
+#endif
+
+#ifndef LOOP_DELAY_MS
+#define LOOP_DELAY_MS   1000
+#endif
+
+#define HIGH 1
+#define LOW  0
 
 // ── Standard LED ──────────────────────────────────────────────────────────────
 
