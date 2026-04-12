@@ -4,8 +4,7 @@
  *
  * Public API for standard GPIO LED and RGB LED control via ESP-IDF LEDC.
  *
- * Pin definitions (LED_R, LED_G, LED_B, LED_PIN etc.) must be provided
- * by the calling project via globals.h or equivalent.
+ * Pin numbers are passed as parameters — no globals.h required.
  */
 
 #pragma once
@@ -34,8 +33,12 @@ void hybx_blink_led(uint8_t pin, uint16_t delay_ms, uint8_t nr_cycles);
 /**
  * Initialize the RGB LED via LEDC. All channels start off.
  * Must be called once before any other RGB functions.
+ *
+ * @param pin_r  GPIO pin for red channel
+ * @param pin_g  GPIO pin for green channel
+ * @param pin_b  GPIO pin for blue channel
  */
-void hybx_init_rgb_led(void);
+void hybx_init_rgb_led(uint8_t pin_r, uint8_t pin_g, uint8_t pin_b);
 
 /**
  * Pack red, green, blue values into a single 32-bit color value.

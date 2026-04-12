@@ -28,7 +28,7 @@ void hybx_blink_led(uint8_t pin, uint16_t delay_ms, uint8_t nr_cycles) {
 
 // ── RGB LED ───────────────────────────────────────────────────────────────────
 
-void hybx_init_rgb_led(void) {
+void hybx_init_rgb_led(uint8_t pin_r, uint8_t pin_g, uint8_t pin_b) {
     ledc_timer_config_t rgb_timer = {
         .speed_mode      = LEDC_LOW_SPEED_MODE,
         .timer_num       = LEDC_TIMER_0,
@@ -40,7 +40,7 @@ void hybx_init_rgb_led(void) {
     ledc_timer_config(&rgb_timer);
 
     ledc_channel_config_t rgb_red_ch = {
-        .gpio_num   = LED_R,
+        .gpio_num   = pin_r,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_0,
         .timer_sel  = LEDC_TIMER_0,
@@ -49,7 +49,7 @@ void hybx_init_rgb_led(void) {
     };
 
     ledc_channel_config_t rgb_green_ch = {
-        .gpio_num   = LED_G,
+        .gpio_num   = pin_g,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_1,
         .timer_sel  = LEDC_TIMER_0,
@@ -58,7 +58,7 @@ void hybx_init_rgb_led(void) {
     };
 
     ledc_channel_config_t rgb_blue_ch = {
-        .gpio_num   = LED_B,
+        .gpio_num   = pin_b,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_2,
         .timer_sel  = LEDC_TIMER_0,
