@@ -11,10 +11,6 @@
 #include "driver/gpio.h"
 #include "driver/ledc.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 // ── RGB LED pin definitions (Arduino Nano ESP32, common anode) ────────────────
 
 #ifndef LED_R
@@ -55,6 +51,41 @@ extern "C" {
 
 #define HIGH 1
 #define LOW  0
+
+ledc_timer_config_t rgb_timer = {
+    .speed_mode      = LEDC_LOW_SPEED_MODE,
+    .timer_num       = LEDC_TIMER_0,
+    .duty_resolution = LEDC_TIMER_8_BIT,
+    .freq_hz         = 5000,
+    .clk_cfg         = LEDC_AUTO_CLK,
+};
+
+ledc_channel_config_t rgb_red_ch = {
+    .gpio_num   = LED_R,
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .channel    = LEDC_CHANNEL_0,
+    .timer_sel  = LEDC_TIMER_0,
+    .duty       = 255,
+    .hpoint     = 0,
+};
+
+ledc_channel_config_t rgb_green_ch = {
+    .gpio_num   = LED_G,
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .channel    = LEDC_CHANNEL_1,
+    .timer_sel  = LEDC_TIMER_0,
+    .duty       = 255,
+    .hpoint     = 0,
+};
+
+ledc_channel_config_t rgb_blue_ch = {
+    .gpio_num   = LED_B,
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .channel    = LEDC_CHANNEL_2,
+    .timer_sel  = LEDC_TIMER_0,
+    .duty       = 255,
+    .hpoint     = 0,
+};
 
 // ── Standard LED ──────────────────────────────────────────────────────────────
 
@@ -113,7 +144,3 @@ void hybx_turn_rgb_off(void);
  * @param nr_cycles  Number of blink cycles
  */
 void hybx_blink_led_rgb(uint32_t color, uint16_t delay_ms, uint8_t nr_cycles);
-
-#ifdef __cplusplus
-}
-#endif
