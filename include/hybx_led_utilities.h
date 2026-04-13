@@ -52,6 +52,9 @@
 #define HIGH 1
 #define LOW  0
 
+/*
+    Structs for the RGB LED functions
+*/
 static ledc_timer_config_t rgb_timer = {
     .speed_mode      = LEDC_LOW_SPEED_MODE,
     .timer_num       = LEDC_TIMER_0,
