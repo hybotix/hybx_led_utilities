@@ -3,8 +3,6 @@
  * Hybrid RobotiX — HybX LED Utilities
  *
  * Public API for standard GPIO LED and RGB LED control via ESP-IDF LEDC.
- *
- * Override default pin definitions by defining them before including this header.
  */
 
 #pragma once
@@ -17,21 +15,21 @@
 extern "C" {
 #endif
 
-// ── Default RGB LED pin definitions (Arduino Nano ESP32, common anode) ────────
+// ── RGB LED pin definitions (Arduino Nano ESP32, common anode) ────────────────
 
-#ifndef HYBX_LED_R
-#define HYBX_LED_R GPIO_NUM_46
+#ifndef LED_R
+#define LED_R           GPIO_NUM_46
 #endif
 
-#ifndef HYBX_LED_G
-#define HYBX_LED_G GPIO_NUM_0
+#ifndef LED_G
+#define LED_G           GPIO_NUM_0
 #endif
 
-#ifndef HYBX_LED_B
-#define HYBX_LED_B GPIO_NUM_45
+#ifndef LED_B
+#define LED_B           GPIO_NUM_45
 #endif
 
-// ── Default standard LED pin definitions ──────────────────────────────────────
+// ── Standard LED pin definitions ──────────────────────────────────────────────
 
 #ifndef LED_YELLOW
 #define LED_YELLOW      GPIO_NUM_48
@@ -45,7 +43,7 @@ extern "C" {
 #define LED_PIN         LED_YELLOW
 #endif
 
-// ── Default control definitions ───────────────────────────────────────────────
+// ── Control definitions ───────────────────────────────────────────────────────
 
 #ifndef BLINK_DELAY_MS
 #define BLINK_DELAY_MS  500
@@ -73,7 +71,7 @@ void hybx_blink_led(uint8_t pin, uint16_t delay_ms, uint8_t nr_cycles);
 
 /**
  * Initialize the RGB LED via LEDC. All channels start off.
- * Uses HYBX_LED_R, HYBX_LED_G, HYBX_LED_B pin definitions.
+ * Uses LED_R, LED_G, LED_B pin definitions.
  * Must be called once before any other RGB functions.
  */
 void hybx_init_rgb_led(void);

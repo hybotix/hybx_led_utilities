@@ -40,7 +40,7 @@ void hybx_init_rgb_led(void) {
     ledc_timer_config(&rgb_timer);
 
     ledc_channel_config_t rgb_red_ch = {
-        .gpio_num   = HYBX_LED_R,
+        .gpio_num   = LED_R,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_0,
         .timer_sel  = LEDC_TIMER_0,
@@ -49,7 +49,7 @@ void hybx_init_rgb_led(void) {
     };
 
     ledc_channel_config_t rgb_green_ch = {
-        .gpio_num   = HYBX_LED_G,
+        .gpio_num   = LED_G,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_1,
         .timer_sel  = LEDC_TIMER_0,
@@ -58,7 +58,7 @@ void hybx_init_rgb_led(void) {
     };
 
     ledc_channel_config_t rgb_blue_ch = {
-        .gpio_num   = HYBX_LED_B,
+        .gpio_num   = LED_B,
         .speed_mode = LEDC_LOW_SPEED_MODE,
         .channel    = LEDC_CHANNEL_2,
         .timer_sel  = LEDC_TIMER_0,
